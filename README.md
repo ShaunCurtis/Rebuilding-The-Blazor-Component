@@ -91,6 +91,8 @@ private async Task _StartRenderAsync()
 {
     /// sets Loading
     this.Loading = true;
+    /// Queue a Render to show any loading spinners
+    await InvokeAsync(Render);
     /// call the public (normally overridden) OnRenderAsync
     await this.OnRenderAsync(this._firstRender);
     /// first render complete
@@ -180,6 +182,14 @@ InvokeAsync(Render);
 await InvokeAsync(Render);
 // rather than 
 Render();
+// or just call
+
+await RenderAsync();
+
+
+/// Runs Render on the UI Thread
+protected async Task RenderAsync() => await this.InvokeAsync(Render);
+
 ```
 
 The final methods are straight from *ComponentBase* and implement the *IHandleEvent* and *IHandleAfterRender* interfaces. 
