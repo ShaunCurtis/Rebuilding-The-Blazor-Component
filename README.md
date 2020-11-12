@@ -1,4 +1,5 @@
-# Rebuilding the Blazor Base Component
+
+# Building a new Blazor Base Component
 
 *ComponentBase* is the out-of-the-box base component for Blazor.  This article picks on it, highlighting some deficiencies, and describes how to build an alternative.
 
